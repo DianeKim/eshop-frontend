@@ -16,7 +16,7 @@ pipeline {
 
   environment {
     SCP_CREDS = credentials('scpCredentials')
-    DOCKER_REGISTRY = "<< SCR Private Endpoint URI >>"
+    DOCKER_REGISTRY = "eshop-fpfmzawl.scr.kr-west.scp-in.com"
   }
   stages {
     stage('Approval') {
@@ -54,10 +54,10 @@ pipeline {
       }
       post {
         success { 
-          slackSend(channel: '<< slack채널 ID >>', color: 'good', message: "(Job:${env.JOB_NAME}- Build Number : ${env.BUILD_NUMBER}) CI success from <@<< 멤버ID >>>")
+          slackSend(channel: 'C0758880V37', color: 'good', message: "(Job:${env.JOB_NAME}- Build Number : ${env.BUILD_NUMBER}) CI success from <@iamdiane.kim@gmail.com>")
         }
         failure {
-          slackSend(channel: '<< slack채널 ID >>', color: 'danger', message: "(Job:${env.JOB_NAME}- Build Number : ${env.BUILD_NUMBER}) CI fail from <@<< 멤버ID >>>")
+          slackSend(channel: 'C0758880V37', color: 'danger', message: "(Job:${env.JOB_NAME}- Build Number : ${env.BUILD_NUMBER}) CI fail from <@iamdiane.kim@gmail.com>")
         }
       }
     }
